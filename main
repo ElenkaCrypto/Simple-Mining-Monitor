@@ -1,0 +1,12 @@
+import psutil
+
+def monitor_performance():
+    print("CPU Usage:", psutil.cpu_percent(), "%")
+    gpu_usage = psutil.sensors_temperatures().get("gpu", None)
+    if gpu_usage:
+        print("GPU Temperature:", gpu_usage[0].current, "C")
+    else:
+        print("GPU data not available.")
+
+if __name__ == "__main__":
+    monitor_performance()
